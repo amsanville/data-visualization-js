@@ -1,0 +1,59 @@
+:root{
+    /* Define a palette */
+    --color-primary: #545F66;
+    --color-secondary: #829399;
+    --color-text: #D0F4EA;
+    --color-background-primary: #E8FCC2;
+    --color-background-secondary: #B1CC74;
+}
+
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Grid/Flex Classes */
+.DataVis{
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 1fr 7fr 1fr;
+
+    /* Container colors unless overwritten */
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+}
+
+.DataVis-title{
+    grid-row: 1;
+    grid-column: 1 /span 3;
+    background-color: var(--color-primary);
+    padding-left: 10%;
+}
+
+.DataVis-content{
+    grid-row: 3;
+    grid-column: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.DataVis-content-bar{
+    padding: 7px;
+    margin: 5px;
+    color: var(--color-background-secondary);
+    background-color: var(--color-background-primary);
+
+    transition: box-shadow 0.3s;
+
+    min-height: 10%;
+}
+
+.DataVis-content-bar:nth-of-type(even){
+    color: var(--color-background-primary);
+    background-color: var(--color-background-secondary);
+}
+
+.DataVis-content-bar:hover{
+    box-shadow: 5px 5px var(--color-text);
+}
