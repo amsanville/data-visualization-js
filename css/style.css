@@ -15,12 +15,21 @@ body{
 .DataVis{
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
-    grid-template-rows: 1fr 1fr 7fr 1fr;
+    grid-template-rows: 230px auto;
+
+    height: 100vh;
 
     /* Container colors unless overwritten */
     color: var(--color-text);
     background-color: var(--color-secondary);
 }
+
+/* Chosen for when the buttons wrap - note, this is a pain in the ass to maintain. Also, note the screen sizes are right as long as the buttons don't change styling. Or positioning. */
+/* Is there a better way? Probably with JS */
+@media screen and (max-width: 1861px) { .DataVis { grid-template-rows: 250px auto; } }
+@media screen and (max-width: 972px) { .DataVis { grid-template-rows: 270px auto; } }
+@media screen and (max-width: 639px) { .DataVis { grid-template-rows: 290px auto; } }
+@media screen and (max-width: 527px) { .DataVis { grid-template-rows: 310px auto; } }
 
 .DataVis-title{
     grid-row: 1;
@@ -29,13 +38,34 @@ body{
     padding-left: 10%;
 }
 
+.DataVis-title-buttonbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.DataVis-title-buttonbar-button{
+    width: 50px;
+    color: var(--color-background-secondary);
+    background-color: var(--color-background-primary);
+}
+
+.DataVis-title-buttonbar-button--toggle{
+    color: var(--color-background-primary);
+    background-color: var(--color-background-secondary);
+}
+
 .DataVis-content{
-    grid-row: 3;
+    grid-row: 2;
     grid-column: 2;
 
     display: flex;
     justify-content: center;
     align-items: flex-end;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .DataVis-content-bar{
